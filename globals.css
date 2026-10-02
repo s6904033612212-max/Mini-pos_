@@ -1,0 +1,127 @@
+:root {
+  --bg: #f2f4f3;
+  --surface: #ffffff;
+  --ink: #1c2b2a;
+  --muted: #66736f;
+  --line: #dde3e0;
+  --primary: #2f6f68;
+  --primary-dark: #245751;
+  --danger: #b3402f;
+  --ok-bg: #e3f1ee;
+  --err-bg: #f8e4e0;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, "Segoe UI", "Noto Sans Thai", "Sarabun", Tahoma, sans-serif;
+  line-height: 1.55;
+}
+
+/* ---------- แถบเมนูด้านบน ---------- */
+.topbar { background: var(--surface); border-bottom: 1px solid var(--line); }
+.topbar-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.brand { font-weight: 700; font-size: 1.15rem; color: var(--primary); }
+.nav { display: flex; gap: 6px; flex-wrap: wrap; }
+.nav a {
+  color: var(--ink);
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+}
+.nav a:hover { background: var(--bg); }
+.nav a:focus-visible, .btn:focus-visible, input:focus-visible, select:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* ---------- เนื้อหา ---------- */
+.container { max-width: 960px; margin: 0 auto; padding: 24px 16px 64px; }
+h1 { font-size: 1.5rem; margin: 0 0 16px; }
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+/* ---------- ฟอร์ม ---------- */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  align-items: end;
+}
+label { display: block; font-size: 0.85rem; color: var(--muted); margin-bottom: 4px; }
+input, select {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font: inherit;
+  background: #fff;
+  color: var(--ink);
+}
+
+.btn {
+  font: inherit;
+  padding: 8px 14px;
+  border: 1px solid var(--primary);
+  background: var(--primary);
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.btn:hover { background: var(--primary-dark); }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn.ghost { background: transparent; color: var(--primary); }
+.btn.ghost:hover { background: var(--ok-bg); }
+.btn.danger { background: transparent; color: var(--danger); border-color: var(--danger); }
+.btn.danger:hover { background: var(--err-bg); }
+.btn.small { padding: 4px 10px; font-size: 0.85rem; }
+.row-actions { display: flex; gap: 6px; }
+
+/* ---------- ตาราง ---------- */
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; background: var(--surface); }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+th { font-size: 0.85rem; color: var(--muted); font-weight: 600; }
+td.num, th.num { text-align: right; }
+td input { min-width: 70px; }
+.low-stock { color: var(--danger); font-weight: 600; }
+
+/* ---------- ข้อความแจ้งผล ---------- */
+.msg { padding: 10px 14px; border-radius: 6px; margin-bottom: 16px; }
+.msg.ok { background: var(--ok-bg); color: var(--primary-dark); }
+.msg.error { background: var(--err-bg); color: var(--danger); }
+.muted { color: var(--muted); }
+
+/* ---------- หน้าขายสินค้า ---------- */
+.total-box {
+  margin: 16px 0;
+  padding: 16px;
+  border-radius: 10px;
+  background: var(--ok-bg);
+}
+.total-box .amount { font-size: 2.2rem; font-weight: 700; color: var(--primary-dark); }
+
+/* ---------- หน้าประวัติ ---------- */
+.summary { font-size: 1.1rem; margin-bottom: 16px; }
+.summary strong { font-size: 1.6rem; color: var(--primary-dark); }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
